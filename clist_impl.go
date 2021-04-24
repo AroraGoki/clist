@@ -17,12 +17,12 @@ func (l *IntList) getLength() int {
 }
 
 // incrLength 增长数组长度计数
-func (l *IntList) incr() {
+func (l *IntList) incrLength() {
 	atomic.AddInt64(&l.length, 1)
 }
 
-// decr 减少数组长度计数
-func (l *IntList) decr() {
+// decrLength 减少数组长度计数
+func (l *IntList) decrLength() {
 	atomic.AddInt64(&l.length, -1)
 }
 
@@ -93,7 +93,7 @@ func (l *IntList) tryInsertNode(value int, a, b *intNode) bool {
 	// 4、插入节点，设置x.next = b, a.next = x
 	x.setNext(b)
 	a.setNext(x)
-	l.incr()
+	l.incrLength()
 	return true //插入成功
 }
 
@@ -132,7 +132,7 @@ func (l *IntList) tryDeleteNode(a, b *intNode) bool {
 	// 4、设置b为marked，删除b
 	b.setMarked()
 	a.setNext(b.next)
-	l.decr()
+	l.decrLength()
 	return true //解锁a、b
 }
 
