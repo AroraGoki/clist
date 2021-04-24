@@ -1,1 +1,3 @@
-# clist implement for homework
+# 并发安全的有序链表
+
+数据严格有序并且没有重复元素
