@@ -1,4 +1,4 @@
-package simplelist
+package clist
 
 type ConcurrentList interface {
 	// 检查一个元素是否存在，如果存在则返回 true，否则返回 false

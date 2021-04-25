@@ -1,4 +1,4 @@
-package simplelist
+package clist
 
 import (
 	"sync"
